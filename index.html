@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Layla's Tomogochi Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Import Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <!-- Import CSS -->
+        <link href="style.css" rel="stylesheet" type= "text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    
+    <body>
+        <div class ="container">
+              <h3 style = "font-weight: bold; text-align: center">Tom the </h3>
+              <h1 style = "color: pink; font-weight:bold; text-align: center">Kirby </h3>
+              <h3 style = "font-weight: bold; text-align: center">Tomagachi </h3>
+            
+            <div class ="row">
+                <div class = "col"><p id ="displayFood"></p></div>
+                <div class = "col"><p id ="displayBath"></p></div>
+                <div class = "col"><p id ="displaySleep"></p></div>
+                <div class = "col"><p id ="displayBored"></p></div>
+                <div class = "col"><p id ="displayTraining"></p></div>
+            </div>
+              <!-- Kirby -->
+            <div class ="row">
+                <div class = " col m12 offset-m3">
+                     <img id ="kirby" class="responsive-img" style="width:50%" src="helloKirby.png">
+                    
+                </div>
+            </div>
+            <!-- Button Row -->
+            <div class = "row">
+                <div class="col offset-s1"><button type = "button" onclick ="feed()">Feed Me</button></div>
+                <div class="col"><button type = "button" onclick ="bathe()">Bathe Me</button></div>
+                <div class="col"><button type = "button" onclick ="nap()">Nap Me</button></div>
+                <div class="col"><button type = "button" onclick ="fun()">Entertain Me</button></div>
+                <div class="col"><button type = "button" onclick ="train()">Train Me</button></div>
+                 
+            </div>
+            <!--Message-->
+            <div class = "row">
+                <h3 id = "message" style = "text-align: center">HELLO!</h3>
+            </div>
+        </div> <!-- div for container -->
+  
+    
+     <script type ="text/javascript" src ="script.js"></script>
+    </body>
+</html>
