@@ -2,18 +2,25 @@
 let food = 5;
 let bath = 5;
 let sleep = 5;
-let bored = 5;
+let bored = 0;
 let training = 0;
-let loop = 1;
 //variable for kirby element
 var kirby= document.querySelector("#kirby");
 
-//Begin by displaying variables on page
 document.getElementById("displayFood").innerHTML = "Food = " + food ;
 document.getElementById("displayBath").innerHTML = "Bath = " + bath ;
 document.getElementById("displaySleep").innerHTML = "Sleep = " + sleep;
 document.getElementById("displayBored").innerHTML = "Boredome = " + bored;
 document.getElementById("displayTraining").innerHTML = "Training = " + training ;
+
+
+
+//disable buttons First
+        document.getElementById("b1").classList.add('disabled');
+         document.getElementById("b2").classList.add('disabled');
+          document.getElementById("b3").classList.add('disabled');
+           document.getElementById("b4").classList.add('disabled');
+            document.getElementById("b5").classList.add('disabled');
 //functions for each button
 function feed(){
     food++;
@@ -25,7 +32,7 @@ function feed(){
      if(food <= 0 ){
         kirby.src = "angryKirby.png"
     }else {
-        kirby.src = "kirbyHappy.png"
+        kirby.src = "foodKirby.png"
     }
     
     
@@ -40,14 +47,13 @@ function bathe(){
     if(bath <= 0 ){
         kirby.src = "angryKirby.png"
     } else {
-        kirby.src = "kirbyHappy.png"
+        kirby.src = "bubbleKirby.png"
     }
 
 }
 
 function nap(){
     sleep++;
-    kirby.src = "sleepKirby.png"
     document.getElementById("displaySleep").innerHTML = "Sleep = " + sleep;
     document.getElementById("message").innerHTML = "ZzZzZzZ";
     
@@ -75,6 +81,7 @@ function fun(){
 
 function train(){
     training++;
+    kirby.src = "trainKirby.png"
     document.getElementById("displayTraining").innerHTML = "Training = " + training ;
     document.getElementById("message").innerHTML = "POWER UP!";
     
@@ -86,11 +93,13 @@ function train(){
     } else if (training >= 30){
         kirby.src = "sayanKirby.png"
     } else{
-        kirby.src = "kirbyHappy.png"
+        kirby.src = "trainKirby.png"
     }
     
 }
 
+    
+ 
 //functions for decreasing each variable
 
 //Function that increases boredom when called and checks if boredom is enough to get mad
@@ -103,7 +112,7 @@ function funLoss(){
         kirby.src = "angryKirby.png"
         document.getElementById("message").innerHTML = "I'M BORED!";
     } else {
-        kirby.src = "kirbyHappy.png"
+       
     }
 }
 
@@ -117,7 +126,7 @@ function bathLoss(){
         kirby.src = "angryKirby.png"
         document.getElementById("message").innerHTML = "YO! I'm Dirty!";
     } else {
-        kirby.src = "kirbyHappy.png"
+        
     }
 }
 
@@ -130,7 +139,7 @@ function foodLoss(){
         kirby.src = "angryKirby.png"
         document.getElementById("message").innerHTML = "Don't Talk to me I'm Hungry!";
     }else {
-        kirby.src = "kirbyHappy.png"
+       
     }
 }
 
@@ -144,9 +153,10 @@ function sleepLoss(){
         kirby.src = "angryKirby.png"
         document.getElementById("message").innerHTML = "I'm Exausted!";
     }else {
-        kirby.src = "kirbyHappy.png"
+        
     }
 }
+
 
 //Function that decreases sleep and checks if sleep is less than zero when he is angry
 function skillLoss(){
@@ -155,7 +165,6 @@ function skillLoss(){
     
     
     if(training <= 10){
-        kirby.src = "kirbyHappy.png"
         document.getElementById("message").innerHTML = "I feel out of shape...";
     } else if (training > 10  && training < 20){
         kirby.src = "kirbyNinja.png"
@@ -171,30 +180,85 @@ function skillLoss(){
         kirby.src ="loseKirby.png"
         document.getElementById("message").innerHTML = "GAME OVER!";
     }else{
-        kirby.src = "kirbyHappy.png"
+       
     }
+    
+   
+}
+//Timer Variables 
+
+    var funLossTimer; 
+
+    var bathLossTimer; 
+
+    var foodLossTimer; 
+
+    var sleepLossTimer; 
+
+    var skillLossTimer;
+    
+    function gameOver(){
+ //Game over is when food = 0; sleep = 0 bath = 0 Training is -5 Bored = 10
+    if (food < 0 || sleep < 0 || bath < 0 || training < - 1 || bored > 1 ){
+        document.getElementById("message").innerHTML = "Game OVER!";
+        kirby.src = "loseKirby.png"
+        document.getElementById("b1").classList.add('disabled');
+         document.getElementById("b2").classList.add('disabled');
+          document.getElementById("b3").classList.add('disabled');
+           document.getElementById("b4").classList.add('disabled');
+            document.getElementById("b5").classList.add('disabled');
+        clearInterval(funLossTimer);
+        clearInterval(bathLossTimer);
+        clearInterval(foodLossTimer);
+        clearInterval(skillLossTimer);
+        clearInterval(sleepLossTimer);
+        
 }
 
+    }
+    
+setInterval(gameOver, 100);
+
+function restart(){
+    //Begin by displaying variables on page
+        //Reset Variables
+            food = 5;
+            bath = 5;
+            sleep = 5;
+            bored = 0;
+            training = 0;
+document.getElementById("displayFood").innerHTML = "Food = " + food ;
+document.getElementById("displayBath").innerHTML = "Bath = " + bath ;
+document.getElementById("displaySleep").innerHTML = "Sleep = " + sleep;
+document.getElementById("displayBored").innerHTML = "Boredome = " + bored;
+document.getElementById("displayTraining").innerHTML = "Training = " + training ;
+    //Rewrite messae and picture
+      document.getElementById("message").innerHTML = "Hello!";
+        kirby.src = "helloKirby.png"
+    //Enable Buttons
+        document.getElementById("b1").classList.remove('disabled');
+         document.getElementById("b2").classList.remove('disabled');
+          document.getElementById("b3").classList.remove('disabled');
+           document.getElementById("b4").classList.remove('disabled');
+            document.getElementById("b5").classList.remove('disabled');
+
+    //Start the Timeer
+    funLossTimer = setInterval(funLoss, 5000)
+    //Bathe: Every 20 seconds trigger bathLoss();
+    bathLossTimer = setInterval(bathLoss, 20000)
+    //Hunger: Every 7 seconds trigger foodLoss();
+    foodLossTimer = setInterval(foodLoss, 7000)
+    //Nap: Every 10 seconds trigger sleepLoss();
+    sleepLossTimer = setInterval(sleepLoss, 30000)
+    //Train: Every 2 seconds trigger skillLoss();
+    skillLossTimer = setInterval(skillLoss, 3000)
+}
+    
 
 //Set a timer rules win a loop before GameOver
-//Game over is when food = 0; sleep = 0 bath = 0 Training is -5 Bored = 10
 
-//function timer(){
-    //if (food > 0 || sleep > 0 || bath > 0 || training > 0 || bored > 10 ){
-    //Bored: Every 5 seconds trigger funLoss();
-    setTimeout(funLoss, 5000)
-    //Bathe: Every 20 seconds trigger bathLoss();
-    setTimeout(bathLoss, 20000)
-    //Hunger: Every 7 seconds trigger foodLoss();
-    setTimeout(foodLoss, 7000)
-    //Nap: Every 30 seconds trigger sleepLoss();
-    setTimeout(sleepLoss, 30000)
-    //Train: Every 2 seconds trigger skillLoss();
-    setTimeout(skillLoss, 2000)
-    //} else {
-    //    document.getElementById("message").innerHTML = "Game OVER!";
-  //  }
-//}
+
+
 
 //for (var i = 0; i< 1000000; i++){
   //  timer();

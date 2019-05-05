@@ -15,7 +15,21 @@
               <h3 style = "font-weight: bold; text-align: center">Tom the </h3>
               <h1 style = "color: pink; font-weight:bold; text-align: center">Kirby </h3>
               <h3 style = "font-weight: bold; text-align: center">Tomagachi </h3>
-            
+            <h4>Instructions:</h4>
+            <p>You must keep Tom happy by bathing him, entertaining him, training him, giving him a nap and feeding him.</p>
+            <ul>
+                <li>Every 5 seconds Tom gets bored</li>
+                <li>Every 20 seconds Tom gets dirty</li>
+                 <li>Every 7 seconds Tom gets hungry</li>
+                 <li>Every 10 seconds Tom gets tired</li>
+                  <li>Every 7 seconds Tom gets hungry</li>
+                   <li>Every 2 seconds Tom looses a skill level</li>
+            </ul>
+            <p>If any of Tom's variable get too low, GAME OVER!</p> <div class="col">
+                
+                <!---Restart Button -->
+            <a class="btn blue lighten-4" type = "button" onclick ="restart()">Start/Restart</a></div>
+         
             <div class ="row">
                 <div class = "col"><p id ="displayFood"></p></div>
                 <div class = "col"><p id ="displayBath"></p></div>
@@ -32,11 +46,11 @@
             </div>
             <!-- Button Row -->
             <div class = "row">
-                <div class="col offset-s1"><button type = "button" onclick ="feed()">Feed Me</button></div>
-                <div class="col"><button type = "button" onclick ="bathe()">Bathe Me</button></div>
-                <div class="col"><button type = "button" onclick ="nap()">Nap Me</button></div>
-                <div class="col"><button type = "button" onclick ="fun()">Entertain Me</button></div>
-                <div class="col"><button type = "button" onclick ="train()">Train Me</button></div>
+                <div class="col offset-s1"><a id = "b1" class="btn pink lighten-4" type = "button"  onclick ="feed()">Feed Me</a></div>
+                <div class="col"><a id = "b2" class="btn pink lighten-4" type = "button" onclick ="bathe()">Bathe Me</a></div>
+                <div class="col"><a id = "b3" class="btn pink lighten-4" type = "button" onclick ="nap()">Nap Me</a></div>
+                <div class="col"><a id = "b4" class="btn pink lighten-4"  type = "button" onclick ="fun()">Entertain Me</a></div>
+                <div class="col"><a id = "b5" class="btn pink lighten-4" type = "button" onclick ="train()">Train Me</a></div>
                  
             </div>
             <!--Message-->
