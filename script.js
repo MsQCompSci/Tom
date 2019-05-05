@@ -179,8 +179,8 @@ function skillLoss(){
 //Set a timer rules win a loop before GameOver
 //Game over is when food = 0; sleep = 0 bath = 0 Training is -5 Bored = 10
 
-function timer(){
-    if (food > 0 || sleep > 0 || bath > 0 || training > 0 || bored > 10 ){
+//function timer(){
+    //if (food > 0 || sleep > 0 || bath > 0 || training > 0 || bored > 10 ){
     //Bored: Every 5 seconds trigger funLoss();
     setTimeout(funLoss, 5000)
     //Bathe: Every 20 seconds trigger bathLoss();
@@ -191,14 +191,14 @@ function timer(){
     setTimeout(sleepLoss, 30000)
     //Train: Every 2 seconds trigger skillLoss();
     setTimeout(skillLoss, 2000)
-    } else {
-        document.getElementById("message").innerHTML = "Game OVER!";
-    }
-}
+    //} else {
+    //    document.getElementById("message").innerHTML = "Game OVER!";
+  //  }
+//}
 
-for (var i = 0; i< 1000000; i++){
-    timer();
-}
+//for (var i = 0; i< 1000000; i++){
+  //  timer();
+//}
 
 
 //Extension: Set a cap for eating in a certain period of time
